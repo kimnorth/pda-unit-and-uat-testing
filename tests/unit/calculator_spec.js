@@ -13,11 +13,18 @@ describe('calculator', function () {
 
   it('can add two numbers together', function(){
     calculator.numberClick(1)
-    console.log(calculator.runningTotal)
     calculator.operatorClick('+')
     calculator.numberClick(4)
     calculator.operatorClick('=')
     assert.strictEqual(5, calculator.runningTotal)
+  })
+
+  it('can divide one number by another', function(){
+    calculator.numberClick(21)
+    calculator.operatorClick('/')
+    calculator.numberClick(7)
+    calculator.operatorClick('=')
+    assert.strictEqual(3, calculator.runningTotal)
   })
 
 });
