@@ -35,6 +35,13 @@ describe('calculator', function () {
     assert.strictEqual(15, calculator.runningTotal)
   })
 
+  it('can subtract one number from another', function(){
+    calculator.numberClick(7)
+    calculator.operatorClick('-')
+    calculator.numberClick(4)
+    calculator.operatorClick('=')
+    assert.strictEqual(3, calculator.runningTotal)
+  })
 
 
 });
