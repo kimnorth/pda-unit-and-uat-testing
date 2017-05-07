@@ -97,7 +97,7 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('12.5')
   })  
 
-  it('should work with very large numbers', function(){
+  it('should work with very large numbers when dividing', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number9')).click();
     element(by.css('#number9')).click();
@@ -122,6 +122,28 @@ describe('calculator functionality', function() {
     element(by.css('#operator_equals')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('10.000000009')
   })
+
+  it('should work with very large numbers when multiplying', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('99999980000001')
+  })
+
 
 });
 
