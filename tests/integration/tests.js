@@ -163,6 +163,26 @@ describe('calculator functionality', function() {
     element(by.css('#number9')).click();
     element(by.css('#operator_equals')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('19999998')
+  })
+
+  it('should work with very large numbers when subtracting', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('9000000')
   })  
 
 
