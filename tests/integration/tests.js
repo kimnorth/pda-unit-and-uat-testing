@@ -16,4 +16,30 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
   })
 
+  it('should update the display with result of arithmetical operation', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('10')
+  })
+
+
+
 });
+
+
+// You need to write integration/acceptance tests to ensure all of the units of code work together in the browser to perform as the user would wish. The framework provided to do this is Protractor JS using Chai for assertions, and there is one sample test written in `/tests/integration/tests.js`. 
+
+// You should write tests to ensure:
+
+//   - Do the number buttons work to update the display of the running total?
+//   - Do each of the arithmetical operations work to update the display with the result of the operation?
+//   - Can we chain multiple operations together?
+//   - Does it work as expected for a range of numbers? (positive, negative, decimals, very large numbers)
+
+// What does the code do in exceptional circumstances?
+
+//   - If you divide by zero, what is the effect?
+//   - Can you write a test to describe what you'd prefer to happen, and then correct the code to make that test pass.
